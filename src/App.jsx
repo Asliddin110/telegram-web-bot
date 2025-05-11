@@ -59,12 +59,10 @@ function App() {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(cartItems),
+				body: JSON.stringify({ products: cartItems, queryID: queryID }),
 			})
 		} else {
-			telegram.sendData(
-				JSON.stringify({ products: cartItems, queryID: queryID })
-			)
+			telegram.sendData(JSON.stringify(cartItems))
 		}
 	}, [cartItems])
 
